@@ -60,33 +60,33 @@ include CMakeFiles\StudyCPP.dir\progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles\StudyCPP.dir\flags.make
 
-CMakeFiles\StudyCPP.dir\Day1\T1.cpp.obj: CMakeFiles\StudyCPP.dir\flags.make
-CMakeFiles\StudyCPP.dir\Day1\T1.cpp.obj: ..\Day1\T1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\CLionProjects\untitled3\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/StudyCPP.dir/Day1/T1.cpp.obj"
+CMakeFiles\StudyCPP.dir\Day1\T5.cpp.obj: CMakeFiles\StudyCPP.dir\flags.make
+CMakeFiles\StudyCPP.dir\Day1\T5.cpp.obj: ..\Day1\T5.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Administrator\CLionProjects\untitled3\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/StudyCPP.dir/Day1/T5.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\StudyCPP.dir\Day1\T1.cpp.obj /FdCMakeFiles\StudyCPP.dir\ /FS -c C:\Users\Administrator\CLionProjects\untitled3\Day1\T1.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\StudyCPP.dir\Day1\T5.cpp.obj /FdCMakeFiles\StudyCPP.dir\ /FS -c C:\Users\Administrator\CLionProjects\untitled3\Day1\T5.cpp
 <<
 
-CMakeFiles\StudyCPP.dir\Day1\T1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StudyCPP.dir/Day1/T1.cpp.i"
-	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\StudyCPP.dir\Day1\T1.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\CLionProjects\untitled3\Day1\T1.cpp
+CMakeFiles\StudyCPP.dir\Day1\T5.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StudyCPP.dir/Day1/T5.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\StudyCPP.dir\Day1\T5.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Administrator\CLionProjects\untitled3\Day1\T5.cpp
 <<
 
-CMakeFiles\StudyCPP.dir\Day1\T1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StudyCPP.dir/Day1/T1.cpp.s"
+CMakeFiles\StudyCPP.dir\Day1\T5.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StudyCPP.dir/Day1/T5.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\StudyCPP.dir\Day1\T1.cpp.s /c C:\Users\Administrator\CLionProjects\untitled3\Day1\T1.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\StudyCPP.dir\Day1\T5.cpp.s /c C:\Users\Administrator\CLionProjects\untitled3\Day1\T5.cpp
 <<
 
 # Object files for target StudyCPP
 StudyCPP_OBJECTS = \
-"CMakeFiles\StudyCPP.dir\Day1\T1.cpp.obj"
+"CMakeFiles\StudyCPP.dir\Day1\T5.cpp.obj"
 
 # External object files for target StudyCPP
 StudyCPP_EXTERNAL_OBJECTS =
 
-StudyCPP.exe: CMakeFiles\StudyCPP.dir\Day1\T1.cpp.obj
+StudyCPP.exe: CMakeFiles\StudyCPP.dir\Day1\T5.cpp.obj
 StudyCPP.exe: CMakeFiles\StudyCPP.dir\build.make
 StudyCPP.exe: CMakeFiles\StudyCPP.dir\objects1.rsp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Administrator\CLionProjects\untitled3\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable StudyCPP.exe"

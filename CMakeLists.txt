@@ -3,4 +3,4 @@ project(StudyCPP)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(StudyCPP Day1/T1.cpp)
+add_executable(StudyCPP Day1/T5.cpp)

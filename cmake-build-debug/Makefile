@@ -126,32 +126,32 @@ StudyCPP\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\StudyCPP.dir\build
 .PHONY : StudyCPP\fast
 
-Day1\T1.obj: Day1\T1.cpp.obj
+Day1\T5.obj: Day1\T5.cpp.obj
 
-.PHONY : Day1\T1.obj
+.PHONY : Day1\T5.obj
 
 # target to build an object file
-Day1\T1.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\StudyCPP.dir\Day1\T1.cpp.obj
-.PHONY : Day1\T1.cpp.obj
+Day1\T5.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\StudyCPP.dir\Day1\T5.cpp.obj
+.PHONY : Day1\T5.cpp.obj
 
-Day1\T1.i: Day1\T1.cpp.i
+Day1\T5.i: Day1\T5.cpp.i
 
-.PHONY : Day1\T1.i
+.PHONY : Day1\T5.i
 
 # target to preprocess a source file
-Day1\T1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\StudyCPP.dir\Day1\T1.cpp.i
-.PHONY : Day1\T1.cpp.i
+Day1\T5.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\StudyCPP.dir\Day1\T5.cpp.i
+.PHONY : Day1\T5.cpp.i
 
-Day1\T1.s: Day1\T1.cpp.s
+Day1\T5.s: Day1\T5.cpp.s
 
-.PHONY : Day1\T1.s
+.PHONY : Day1\T5.s
 
 # target to generate assembly for a file
-Day1\T1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\StudyCPP.dir\Day1\T1.cpp.s
-.PHONY : Day1\T1.cpp.s
+Day1\T5.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\StudyCPP.dir\Day1\T5.cpp.s
+.PHONY : Day1\T5.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... StudyCPP
-	@echo ... Day1/T1.obj
-	@echo ... Day1/T1.i
-	@echo ... Day1/T1.s
+	@echo ... Day1/T5.obj
+	@echo ... Day1/T5.i
+	@echo ... Day1/T5.s
 .PHONY : help
 
 
