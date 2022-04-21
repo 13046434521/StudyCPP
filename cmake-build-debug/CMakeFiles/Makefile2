@@ -80,12 +80,12 @@ clean: CMakeFiles/StudyCPP.dir/clean
 CMakeFiles/StudyCPP.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=G:\ClionProject\StudyCPP\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target StudyCPP"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=G:\ClionProject\StudyCPP\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target StudyCPP"
 .PHONY : CMakeFiles/StudyCPP.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/StudyCPP.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start G:\ClionProject\StudyCPP\cmake-build-debug\CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start G:\ClionProject\StudyCPP\cmake-build-debug\CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/StudyCPP.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start G:\ClionProject\StudyCPP\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/StudyCPP.dir/rule
