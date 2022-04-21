@@ -1,9 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/StudyCPP.dir/Day1/T5.cpp.obj"
+  "CMakeFiles/StudyCPP.dir/Day1/Student.cpp.obj"
+  "CMakeFiles/StudyCPP.dir/Day1/Student.cpp.obj.d"
+  "CMakeFiles/StudyCPP.dir/Day1/T9.cpp.obj"
+  "CMakeFiles/StudyCPP.dir/Day1/T9.cpp.obj.d"
   "StudyCPP.exe"
   "StudyCPP.exe.manifest"
-  "StudyCPP.lib"
   "StudyCPP.pdb"
+  "libStudyCPP.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
