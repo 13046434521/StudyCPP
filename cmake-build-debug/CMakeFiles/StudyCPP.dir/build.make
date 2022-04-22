@@ -68,28 +68,28 @@ include CMakeFiles/StudyCPP.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/StudyCPP.dir/flags.make
 
-CMakeFiles/StudyCPP.dir/Day2/T1.cpp.obj: CMakeFiles/StudyCPP.dir/flags.make
-CMakeFiles/StudyCPP.dir/Day2/T1.cpp.obj: ../Day2/T1.cpp
-CMakeFiles/StudyCPP.dir/Day2/T1.cpp.obj: CMakeFiles/StudyCPP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=G:\ClionProject\StudyCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/StudyCPP.dir/Day2/T1.cpp.obj"
-	"D:\CLion 2021.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/StudyCPP.dir/Day2/T1.cpp.obj -MF CMakeFiles\StudyCPP.dir\Day2\T1.cpp.obj.d -o CMakeFiles\StudyCPP.dir\Day2\T1.cpp.obj -c G:\ClionProject\StudyCPP\Day2\T1.cpp
+CMakeFiles/StudyCPP.dir/Day2/T2.cpp.obj: CMakeFiles/StudyCPP.dir/flags.make
+CMakeFiles/StudyCPP.dir/Day2/T2.cpp.obj: ../Day2/T2.cpp
+CMakeFiles/StudyCPP.dir/Day2/T2.cpp.obj: CMakeFiles/StudyCPP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=G:\ClionProject\StudyCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/StudyCPP.dir/Day2/T2.cpp.obj"
+	"D:\CLion 2021.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/StudyCPP.dir/Day2/T2.cpp.obj -MF CMakeFiles\StudyCPP.dir\Day2\T2.cpp.obj.d -o CMakeFiles\StudyCPP.dir\Day2\T2.cpp.obj -c G:\ClionProject\StudyCPP\Day2\T2.cpp
 
-CMakeFiles/StudyCPP.dir/Day2/T1.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StudyCPP.dir/Day2/T1.cpp.i"
-	"D:\CLion 2021.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E G:\ClionProject\StudyCPP\Day2\T1.cpp > CMakeFiles\StudyCPP.dir\Day2\T1.cpp.i
+CMakeFiles/StudyCPP.dir/Day2/T2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StudyCPP.dir/Day2/T2.cpp.i"
+	"D:\CLion 2021.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E G:\ClionProject\StudyCPP\Day2\T2.cpp > CMakeFiles\StudyCPP.dir\Day2\T2.cpp.i
 
-CMakeFiles/StudyCPP.dir/Day2/T1.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StudyCPP.dir/Day2/T1.cpp.s"
-	"D:\CLion 2021.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S G:\ClionProject\StudyCPP\Day2\T1.cpp -o CMakeFiles\StudyCPP.dir\Day2\T1.cpp.s
+CMakeFiles/StudyCPP.dir/Day2/T2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StudyCPP.dir/Day2/T2.cpp.s"
+	"D:\CLion 2021.3\bin\mingw\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S G:\ClionProject\StudyCPP\Day2\T2.cpp -o CMakeFiles\StudyCPP.dir\Day2\T2.cpp.s
 
 # Object files for target StudyCPP
 StudyCPP_OBJECTS = \
-"CMakeFiles/StudyCPP.dir/Day2/T1.cpp.obj"
+"CMakeFiles/StudyCPP.dir/Day2/T2.cpp.obj"
 
 # External object files for target StudyCPP
 StudyCPP_EXTERNAL_OBJECTS =
 
-StudyCPP.exe: CMakeFiles/StudyCPP.dir/Day2/T1.cpp.obj
+StudyCPP.exe: CMakeFiles/StudyCPP.dir/Day2/T2.cpp.obj
 StudyCPP.exe: CMakeFiles/StudyCPP.dir/build.make
 StudyCPP.exe: CMakeFiles/StudyCPP.dir/linklibs.rsp
 StudyCPP.exe: CMakeFiles/StudyCPP.dir/objects1.rsp

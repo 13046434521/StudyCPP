@@ -128,29 +128,29 @@ StudyCPP/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/build
 .PHONY : StudyCPP/fast
 
-Day2/T1.obj: Day2/T1.cpp.obj
-.PHONY : Day2/T1.obj
+Day2/T2.obj: Day2/T2.cpp.obj
+.PHONY : Day2/T2.obj
 
 # target to build an object file
-Day2/T1.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/Day2/T1.cpp.obj
-.PHONY : Day2/T1.cpp.obj
+Day2/T2.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/Day2/T2.cpp.obj
+.PHONY : Day2/T2.cpp.obj
 
-Day2/T1.i: Day2/T1.cpp.i
-.PHONY : Day2/T1.i
+Day2/T2.i: Day2/T2.cpp.i
+.PHONY : Day2/T2.i
 
 # target to preprocess a source file
-Day2/T1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/Day2/T1.cpp.i
-.PHONY : Day2/T1.cpp.i
+Day2/T2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/Day2/T2.cpp.i
+.PHONY : Day2/T2.cpp.i
 
-Day2/T1.s: Day2/T1.cpp.s
-.PHONY : Day2/T1.s
+Day2/T2.s: Day2/T2.cpp.s
+.PHONY : Day2/T2.s
 
 # target to generate assembly for a file
-Day2/T1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/Day2/T1.cpp.s
-.PHONY : Day2/T1.cpp.s
+Day2/T2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\StudyCPP.dir\build.make CMakeFiles/StudyCPP.dir/Day2/T2.cpp.s
+.PHONY : Day2/T2.cpp.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... StudyCPP
-	@echo ... Day2/T1.obj
-	@echo ... Day2/T1.i
-	@echo ... Day2/T1.s
+	@echo ... Day2/T2.obj
+	@echo ... Day2/T2.i
+	@echo ... Day2/T2.s
 .PHONY : help
 
 
