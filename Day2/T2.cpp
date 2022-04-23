@@ -5,6 +5,7 @@
 class Student{
 public:
     // :height(height) 等价于 this->height=height;
+    // 初始化列表
     Student(char *name,int age,int height):height(age),age(height),name(name){
 //        this->age = age;
 //        this->height = height;

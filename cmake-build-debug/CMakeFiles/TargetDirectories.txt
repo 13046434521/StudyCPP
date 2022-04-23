@@ -1,3 +1,0 @@
-G:/ClionProject/StudyCPP/cmake-build-debug/CMakeFiles/StudyCPP.dir
-G:/ClionProject/StudyCPP/cmake-build-debug/CMakeFiles/edit_cache.dir
-G:/ClionProject/StudyCPP/cmake-build-debug/CMakeFiles/rebuild_cache.dir

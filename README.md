@@ -209,5 +209,208 @@
         delete(student1);
         student1= NULL;
     }
+```
 
+##### C++重要函数
+##### 1.自定义命名空间
+```c++
+    #include "stdio.h"
+    // 自定义namespace：命名空间
+    namespace jtl{
+    int age;
+    char* name;
+
+    void show(char*name,int age){
+    printf("name:%s,age:%d\n",name,age);
+    }
+    }
+    using namespace jtl;
+    int main(){
+    jtl::show((char *)"贾天龙",29);
+
+    return 0;
+    }
+```
+##### 2.构造函数与析构函数
+    1. 无论在堆中还是栈中创建对象，都会调用构造函数。
+    2. C++类中默认无参构造函数
+    3. 构造函数调用构造函数，用类名:(参数)来赋值
+    4. 初始化列表，相当于赋值。:height(height) 等价于 this->height=height;
+    5. 析构函数必须无参，且用~符号修饰
+    6. 栈中创建的对象，会自动调用析构函数
+    7. 堆中通过 new 创建的对象，必须delete，delete会调用析构函数
+```c++
+    //构造函数
+    #include "iostream"
+    class Student{
+    public:
+        // :height(height) 等价于 this->height=height;
+        // 初始化列表
+        Student(char *name,int age,int height):height(age),age(height),name(name){
+    //        this->age = age;
+    //        this->height = height;
+    //        this->name = name;
+            printf("三个参数:name:%s,age:%d,height:%d\n",name,age,height);
+
+            // 动态开辟内存,为了演示析构函数
+            this->test = (char *)malloc(1024);
+        }
+
+        Student(){
+            printf("空参构造函数\n");
+        }
+
+        // 默认调用:Student(char*name,int age,int height),再调用本身
+        Student(char* name): Student(name,28,190){
+            printf("一个参构造函数\n");
+        }
+
+        char *getName() const {
+            return name;
+        }
+
+        int getAge() const {
+            return age;
+        }
+
+        int getHeight() const {
+            return height;
+        }
+
+        // 栈中开辟的对象，出栈时自动调用析构函数
+        // 堆中开辟的对象，delete(对象)时调用析构函数. free(对象)不会调用析构函数
+        ~Student(){
+            printf("析构函数?\n");
+            // 释放动态开辟的内存
+            if (test){
+                free(test);
+                test =NULL;
+            }
+        }
+
+    private:
+        char *name;
+        int age;
+        int height;
+        char*test;
+    };
+
+    int main(){
+        Student stu ((char *)"张无忌");
+        Student *student = new Student((char *)"谢逊",60,180);
+        printf("name:%s,age:%d,height:%d\n",student->getName(),student->getAge(),student->getHeight());
+        delete(student);
+        student =NULL;
+    }
+```
+##### 3.析构函数
+ > 1. C语言中。malloc和free是对应的。不会调用构造函数和析构函数。
+ > 2. C++中。new 和 delete是队形的。会调用构造函数和析构函数。
+##### 4.拷贝构造函数
+    1. 对象=对象 这种操作会调用到拷贝构造函数。
+    2. 指针=指针 这种操作，实际上是两个指针指向同一块内存，不会调用拷贝构造函数。
+    3. Stu stu1 = Stu()/Stu stu1(); Stu stu2=stu1; 这种操作优先调用自定义拷贝构造函数
+    4. Stu stu1 = Stu()/Stu stu1();Stu stu2;stu2=stu1; 这种操作会调用默认构造函数。
+```c++
+    // 4.拷贝构造函数
+    //  对象=对象 执行拷贝构造函数
+    //  指针=指针 不执行拷贝构造函数
+
+    #include "iostream"
+
+    class Student {
+    public:
+        Student() {}
+
+        Student(Student &student) {
+            printf("拷贝构造函数:%p\n", &student);
+            this->name = student.name;
+            this->height = student.age;
+            this->age = student.height;
+        }
+
+        Student(char *name, int age, int height) : name(name), age(age), height(height) {
+            printf("构造函数\n");
+        }
+
+        char *getName() const {
+            return name;
+        }
+
+        int getHeight() const {
+            return height;
+        }
+
+        int getAge() const {
+            return age;
+        }
+
+    private:
+        char *name;
+        int age;
+        int height;
+    };
+
+    // 拷贝构造函数
+    int main() {
+
+        printf("*******************堆中创建对象:指针指向内存地址***********************\n");
+        printf("*******************堆中创建对象:不执行拷贝构造函数***********************\n");
+        // 两个指针指向同一块内存，所以不执行拷贝构造函数
+        Student *stu = new Student((char *) "张无忌", 29, 180);
+        Student *stu1 = stu;// stu1和stu指向同一块内存，
+    //    stu = nullptr;
+        printf("student:%p\n", stu);
+        printf("student:%p\n", stu1);
+
+        printf("name:%s,age:%d,height:%d\n", stu1->getName(), stu1->getAge(), stu1->getHeight());
+
+        printf("\n*******************栈中创建对象:正常拷贝构造函数***********************\n");
+        // 会执行自定义拷贝构造函数
+        Student student((char *) "谢逊", 60, 190);
+        Student student1 = student;
+        printf("student:%p\n", &student);
+        printf("name:%s,age:%d,height:%d\n", student1.getName(), student1.getAge(), student1.getHeight());
+
+
+        printf("\n*******************栈中创建对象:默认拷贝构造函数***********************\n");
+        // 会执行默认拷贝构造函数
+        Student student2;
+        student2 = student;
+
+        printf("student:%p\n", &student);
+        printf("name:%s,age:%d,height:%d\n", student2.getName(), student2.getAge(), student2.getHeight());
+    }
+```
+##### 常量指针，指针常量，常量指针常量
+    1. 原则：第一个不可以改变，第二个可以变。
+    2. 常量指针：const int*p: 指针修饰的内存中的常量不可以修改。指针指向的位置可以修改
+    3. 指针常量：int*p const: 指针指向的位置不能修改，指针指向的内存中的常量的值可以修改。
+    4. 常量指针常量：const int*p const: 什么都不能修改
+```c++
+    // 5. 常量指针：const int * p;
+    //    指针常量: int * const p;
+    //    常量指针常量：const int * const p;
+    //
+    #include "iostream"
+    int main(){
+        printf("*******************常量指针：***********************\n");
+        int num1 = 200;
+        int num2 = 100;
+    
+        const int* p1 = &num1;
+        p1 = &num2;
+    //    *p1 = 300; 常量指针：不能修改指针指向的地址中的常量值，可以修改指针指向的地址
+    
+        printf("\n*******************指针常量：***********************\n");
+         int* const p2 = &num1;
+    //    p2 = &num2; 指针常量:可以修改指针指向的内存地址，不能修改指针指向的内存地址中的常量
+        *p2 = 300;
+        printf("\n*******************常量指针常量：***********************\n");
+        const int*const p3 = &num1;
+        // 常量指针常量：指针指向的地址和指针指向的地址中的值都不能改变
+    //    p3 = &num2;
+    //    p3 = nullptr;
+    //    *p3 = 300;
+    }
 ```

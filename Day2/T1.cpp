@@ -2,7 +2,6 @@
 // Created by jiatianlong on 2022/4/21.
 //
 #include "stdio.h"
-
 // 自定义namespace：命名空间
 namespace jtl{
     int age;
