@@ -445,3 +445,67 @@ const int*const p3 = &num1;
 //    *p3 = 300;
 }
 ```
+##### C++浅拷贝和深拷贝
+    1. 浅拷贝：class的成员变量如果有堆中创建的变量。浅拷贝会导致，拷贝前的对象和拷贝后的对象的属性，指向同一个堆内存。释放时会造成重复释放
+    2. 深拷贝：堆中的变量，会再次创建，同时将数据拷贝到新创建的内存中。避免两个对象的变量，指向同一块内存。
+    3. Student getStudent(Student stu){} 这里会调用拷贝构造函数。stu是通过拷贝构造函数创建出来的对象
+    4. 默认的拷贝构造函数，都是浅拷贝
+    5. 拷贝构造函数中，会将传入的参数拷贝到this中，返回this。
+    6. class的成员变量有在堆区上创建的，尽量复写拷贝构造函数
+```c++
+#include "iostream"
+class Student{
+private:
+    char * name;
+    int age;
+    int height;
+public:
+    Student(const Student& student){
+        printf("拷贝构造函数:参数地址:%p,this地址:%p\n",&student,this);
+    }
+
+    Student(char *name, int age=10, int height=180) : name(name), age(age), height(height) {
+        printf("有参构造函数:%p\n",this);
+    }
+    Student(){
+        printf("无参构造函数:地址:%p\n",this);
+    }
+    ~Student(){
+        printf("析构函数:%p\n",this);
+    }
+};
+
+Student getStudent(char* name){
+    Student student(name);
+
+    printf("getStudent地址:%p\n",&student);
+
+    return student;
+}
+// 会执行拷贝构造函数
+Student getStudent1(Student stu){
+    stu.name =(char *) "张无忌";
+    printf("getStudent地址:%p\n",&stu);
+    return stu;
+}
+int main(){
+    Student student;
+    printf("main:%p\n",&student);
+    // 这里会调用拷贝构造函数，getStudent中的stu和传入的student不是同一个对象
+    Student stu =  getStudent1(student);
+    Student student1 = getStudent((char *)"张无忌") ;
+
+    printf("main:%p\n",&student1);
+}
+/*
+ *无参构造函数 STU1000
+ * main STU1000
+ * 有参构造函数 STU2000
+ * getStudent STU2000
+ * 拷贝构造函数 STU2000,STU3000
+ * 析构函数 STU2000
+ * main STU3000
+ * 析构函数 STU3000
+ * 析构函数 STU1000
+ */
+```
