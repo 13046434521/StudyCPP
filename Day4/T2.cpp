@@ -20,7 +20,7 @@ public:
         age+=10;
     }
 };
-int Person::age=20;
+int Person::age = 20;
 int main(){
     Person* person = new Person();
     person->age = 30;

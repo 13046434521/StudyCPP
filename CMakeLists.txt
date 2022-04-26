@@ -3,6 +3,6 @@ project(StudyCPP)
 
 set(CMAKE_CXX_STANDARD 14)
 #set(CMAKE_EXE_LINKER_FLAGS "-static")
-add_executable(StudyCPP  Day4/T2.cpp)
-#target_link_libraries (StudyCPP -static) # 瑕佷箞set(CMAKE_EXE_LINKER_FLAGS "-static") 瑕佷箞target_link_libraries(),鍚﹀垯鍙墽琛屾枃浠朵細缂洪潤鎬佸簱
-target_link_libraries (StudyCPP -static gcc stdc++ -dynamic) # 瑕佷箞set(CMAKE_EXE_LINKER_FLAGS "-static") 瑕佷箞target_link_libraries(),鍚﹀垯鍙墽琛屾枃浠朵細缂洪潤鎬佸簱
+add_executable(StudyCPP Day4/T4.cpp)
+#target_link_libraries (StudyCPP -static) # 要么set(CMAKE_EXE_LINKER_FLAGS "-static") 要么target_link_libraries(),否则可执行文件会缺静态库
+target_link_libraries (StudyCPP -static gcc stdc++ -dynamic) # 要么set(CMAKE_EXE_LINKER_FLAGS "-static") 要么target_link_libraries(),否则可执行文件会缺静态库
