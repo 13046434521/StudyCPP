@@ -836,3 +836,42 @@ int main(){
     cout<<student.getAge()<<endl;
 }
 ```
+##### 运算符重载
+##### 1. 运算符重载
+    1. 对象和对象之间不允许进行运算操作
+    2. 可以通过operator关键字 重写 运算操作
+    3. 返回对象 operator 操作符 (传入参数){}; 
+    4. Student  operator   +   (Student student1,Student student2){}
+    5. 必须是运算符才能重载，非运算符的比如￥这种符号不可以进行该操作
+```c++
+// 运算符重载
+#include "iostream"
+class Student{
+public:
+    int age;
+    int height;
+
+public:
+    Student(){};
+    Student(int age,int height):age(age),height(height){}
+};
+
+// 操作符重载
+Student operator + (Student student1,Student student2){
+    Student stu;
+    stu.age = student1.age+student2.age;
+    stu.height = student1.height+student2.height;
+    return stu;
+}
+
+
+int main(){
+    Student student1(20,180);
+    Student student2(29,174);
+
+    // 重写了操作符，所以student对象可以执行+操作
+    Student studentSet = student1+student2 ;
+    std::cout<<studentSet.age<<"---"<<studentSet.height<<std::endl;
+}
+
+```
