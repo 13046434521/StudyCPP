@@ -16,10 +16,12 @@ public:
         age +=10;
     }
 
-    static void staticUpDate(){
-        age+=10;
-    }
+    static void staticUpDate();
 };
+
+void Person::staticUpDate() {
+    age+=10;
+}
 int Person::age = 20;
 int main(){
     Person* person = new Person();

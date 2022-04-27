@@ -509,3 +509,330 @@ int main(){
  * 析构函数 STU1000
  */
 ```
+##### 友元函数和友元类
+##### 1. 可变参数
+    1.导入头文件 #include "stdarg.h"//支持可变参数头文件
+    2. va_List va_list; //声明可变参数列表
+    3. va_start(va_list,count); //va_list指向可变参数头指针。
+    4. va_arg(va_list,int); //取出可变参数的数据，参数1：可变参数列表，参数2：取出的类型
+    5. va_end(va_list);// 将可变参数列表置空
+```c++
+//
+// Created by jiatianlong on 2022/4/24.
+// 1. 可变参数
+//
+#include "stdarg.h"//支持可变参数头文件
+#include "iostream"
+void getData(int count ,...){
+    va_list  vaList;
+    // 将vaList指向可变参数头地址
+    va_start(vaList,count);
+
+    for (int i = 0; i < count; ++i) {
+        // va_arg :取出当前指针指向的可变参数
+        // 第一个参数：可变参数列表
+        // 第二个参数：类型
+        printf("%d\n", va_arg(vaList,int));
+    }
+
+    //vaList置空
+    va_end(vaList);
+}
+
+
+int main(){
+    getData(10,8,9,"1","2",3.0f);
+}
+
+```
+##### 2. 静态变量与静态方法
+    1. 静态变量及静态方法声明时：需使用static
+    2. 静态变量实现时：类型 类名::属性名：int Person::age = 20; 
+    3. 静态方法实现时：返回类型 类名::属性名：int Person::age = 20; 
+```c++
+#include "iostream"
+
+using namespace std;
+class Person{
+public:
+    static int age ;
+
+    void update(){
+        age +=10;
+    }
+
+    static void staticUpDate();
+};
+
+// 静态方法实现
+void Person::staticUpDate() {
+    age+=10;
+}
+// 静态变量赋值
+int Person::age = 20;
+int main(){
+    Person* person = new Person();
+    person->age = 30;
+    cout<<person->age<<endl;
+    person->update();
+    cout<<person->age<<endl;
+    person->staticUpDate();
+    cout<<person->age<<endl;
+    Person::staticUpDate();
+    cout<<person->age<<endl;
+}
+```
+
+##### 3. this指针赋值
+    1. this指针是一个指针常量。
+    2. 所以，可以通过this修改对象属性的值
+    3. 但是，不能通过this修改，this指向的地址
+
+##### 4. 友元函数
+    1. 类A中有几个私有属性，类B中有一个方法的参数是类A。// void upDateHeight(Student* student,int age,int height);//非友元函数。不能访问Student的私有成员
+    2. 正常情况：类B中的方法无法调用类A 中的私有变量。
+    3. 如果用friend关键字进行修饰。就变成了友元函数。// friend void upDateHeight(Student* student,int age,int height);//友元函数。可以访问Student的私有成员
+    4. 友元函数声明时，不用加类名:: // void upDateAge(Student* student,int age){}
+```c++
+//
+// Created by jiatianlong on 2022/4/26.
+// 友元函数
+//
+#include "iostream"
+class Student{
+private:
+    int age;
+    int height;
+
+public:
+    int getAge() const {
+        return age;
+    }
+
+    int getHeight() const;
+
+    friend void upDateHeight(Student* student,int age,int height);
+};
+
+void upDateAge(Student* student,int age){
+    //这么写是错的，因为age是私有的。无法访问
+    //student->age=age;
+}
+
+// 友元函数，可以访问Student中的私有对象
+// 不需要加类名
+void upDateHeight(Student* student,int age,int height){
+    student->age = age;
+    student->height=height;
+}
+
+int Student::getHeight() const {
+    return height;
+}
+
+int main(){
+    Student student;
+    upDateHeight(&student,18,180);
+    printf("age %d,height %d\n",student.getAge(),student.getHeight());
+}
+```
+##### 5.正常声明类及相关方法
+    1. .h 中的文件会整体拷贝到他的实现文件中（.cpp文件）
+    2. .h文件中的宏定义是为了防止循环导入的。
+```c++
+#ifndef PIG_H
+#define PIG_H
+
+#include "iostream"
+using namespace std;
+
+
+class Pig {
+private:
+    char * name;
+    int age;
+public:
+    static int height;
+    // 构造函数
+    Pig();
+    Pig(char *name);
+    Pig(char *name,int age);
+
+    // 拷贝构造函数
+    Pig(const Pig& pig);
+
+    // 析构函数
+    ~Pig();
+
+    // 正常函数声明
+    void setName(char *name);
+    void setAge(int age);
+    void setPig(Pig &pig);
+
+    //常量函数
+    void showPigInfo() const;//
+
+    char *getName();
+    int getAge();
+
+    // 静态方法
+    static void Update(Pig* pig);
+    // 友元函数
+    friend void friendPig(Pig pig,char*name,int age);
+};
+
+
+#endif //STUDYCPP_PIG_H
+//
+// Created by jiatianlong on 2022/4/27.
+//
+// 类的方法实现：需要加  类名::
+// 普通方法: 返回值 类名::
+// 静态方法: 和普通方法一样，不需要加static
+// 友元函数: 不需要加 类名::
+
+#include "Pig.h"
+
+Pig::Pig() {
+    cout << "构造函数:地址："<<this<<  endl;
+}
+
+Pig::Pig(char *name) {
+    this->name = name;
+    cout << "构造函数:一个参数:地址："<<this<< " name:" << name << endl;
+}
+
+Pig::Pig(char *name, int age) : name(name), age(age) {
+    cout << "构造函数:两个参数:地址："<<this<< " name:" << name << " age:" << age << endl;
+}
+
+Pig::Pig(const Pig &pig) {
+    cout << "拷贝构造函数:传入参数pig地址：" << &pig << " 新对象this地址:" << this << endl;
+}
+
+void Pig::showPigInfo() const {
+    cout << "普通函数:showPigInfo:this地址：" << this <<" name:"<<name<<" age:"<<age<< endl;
+}
+
+void Pig::setName(char *name) {
+    this->name = name;
+    cout << "普通函数:setName:this地址：" << this << endl;
+}
+
+void Pig::setAge(int age) {
+    this->age =age;
+    cout << "普通函数:setAge:this地址：" << this << endl;
+}
+
+void Pig::setPig(Pig &pig) {
+    //this = pig; 错误写法，this是个指针常量
+    this->name = pig.name;
+    this->age = pig.age;
+
+    cout << "普通函数:setPig:pig地址:" << &pig << " this地址：" << this << endl;
+}
+
+int Pig::getAge() {
+    cout<<"普通函数：getAge:this地址："<<this<< " age:"<<age<<endl;
+    return this->age;
+}
+
+char *Pig::getName() {
+    cout<<"普通函数：getName:this地址："<<this<< " name:"<<name<<endl;
+    return this->name;
+}
+
+void Pig::Update(Pig *pig) {
+    cout << "静态函数:无法调用this：传入对象地址：" << pig << endl;
+}
+
+int Pig::height = 180;
+
+void friendPig(Pig pig, char *name, int age) {
+    pig.name = name;
+    pig.age = age;
+    cout << "友元函数:可以调用类的私有属性：传入对象地址：" << &pig <<" name："<<pig.name<<" age："<<pig.age<< endl;
+}
+
+
+Pig::~Pig() {
+    cout << "析构函数:对象地址：" << this << endl;
+}
+
+
+#include "Pig.h"
+
+int main(){
+    Pig pig;
+    Pig* pig_p = new Pig((char*)"谢逊",50);
+
+    Pig pig1 = pig;
+    pig1.setName((char *)"张无忌");
+    pig1.setAge(20);
+    pig1.getName();
+    Pig::Update(pig_p);
+
+    pig1.showPigInfo();
+
+    pig.setPig(pig1);
+    pig.showPigInfo();
+
+    friendPig(pig1,(char *)"周芷若",18);
+    pig1.getName();
+    pig1.showPigInfo();
+    delete(pig_p);
+}
+```
+##### 6.友元类
+    1. 在类A中声明类B为自己的友元类
+    2. 类B中调用类A时，可以调用类A的私有成员
+```c++
+//
+// Created by jiatianlong on 2022/4/27.
+// 友元类
+// 类A中定义类B为友元类
+// 可以在类B中调用，类A的私有属性
+
+#include "iostream"
+
+using namespace std;
+class Student{
+private:
+    int age;
+    int klass;
+    friend class Grade;
+public:
+    void setAge(int age){
+        this->age = age;
+    }
+
+    int getAge(){
+        return this->age;
+    }
+    void setKlass(int klass){
+        this->klass = klass;
+    }
+
+    int getKlass(){
+        return this->klass;
+    }
+};
+
+class Grade {
+private:
+
+public:
+    void setKLass(Student &st, int klass) {
+        st.klass = klass;
+    };
+};
+
+int main(){
+    Student student ;
+    student.setAge(10);
+    Grade grade;
+    grade.setKLass(student,20);
+
+    cout<<student.getAge()<<endl;
+}
+```

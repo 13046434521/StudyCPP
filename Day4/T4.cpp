@@ -23,7 +23,8 @@ void upDateAge(Student* student,int age){
     //student->age=age;
 }
 
-//友元函数，可以访问Student中的私有对象
+// 友元函数，可以访问Student中的私有对象
+// 不需要加类名
 void upDateHeight(Student* student,int age,int height){
     student->age = age;
     student->height=height;
