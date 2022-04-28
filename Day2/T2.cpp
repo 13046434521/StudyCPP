@@ -16,7 +16,7 @@ public:
         this->test = (char *)malloc(1024);
     }
 
-    Student(){
+    Student(char *name, int age) {
         printf("空参构造函数\n");
     }
 

@@ -836,7 +836,7 @@ int main(){
     cout<<student.getAge()<<endl;
 }
 ```
-##### 运算符重载
+##### 运算符重载和继承
 ##### 1. 运算符重载
     1. 对象和对象之间不允许进行运算操作
     2. 可以通过operator关键字 重写 运算操作
@@ -874,4 +874,236 @@ int main(){
     std::cout<<studentSet.age<<"---"<<studentSet.height<<std::endl;
 }
 
+```
+###### C++继承
+    1. c++和java一样可以继承，但是java是单继承，c++可以继承多个父类
+    2. c++中的继承分为private和public，默认是private
+    3. 子类继承父类时，在子类中，无论哪种继承，都无法调用父类的私有属性
+    4. 子类继承父类时，在子类中，无论哪种继承，都可以调用父类的公开属性
+    5. 子类继承父类时，在子类之外，private的继承，无法调用父类的公开属性
+    6. 子类继承父类时，在子类之外，public的继承，可以调用父类的公开属性
+```c++
+// Created by jiatianlong on 2022/4/28.
+// 类的继承
+// 1. class 继承父类，分为private和public继承。用private和public关键字来区分
+// 2. 默认属于private继承
+// 3. 无论哪种继承，子类都无法访问父类的私有属性、
+// 4. private和public继承。在子类中能拿到父类的public属性
+// 5. private继承在子类外面，无法访问父类的public属性
+// 6. public继承在子类外面，可以访问父类的public属性
+#include "iostream"
+
+class Person {
+public:
+    char *name;
+    int age;
+
+public:
+    Person(char *name, int age) : name(name), age(age) {
+        printf("Person 构造器\n");
+    }
+
+    void setName(char *name) {
+        this->name = name;
+    }
+
+    void setAge(int age) {
+        this->age = age;
+    }
+
+};
+
+enum Sex {
+    Man = 1,
+    WoMan
+};
+
+class China : public Person {
+private:
+    Sex sex;
+public:
+    China(char *name, int age, Sex sex) : Person(name, age), sex(sex) {
+        printf("Man 构造器\n");
+    }
+
+    void setName(char *name) {
+        this->name = name;
+    }
+
+    void setSex(Sex sex) {
+        this->sex = sex;
+    }
+
+    Sex getSex() {
+        return this->sex;
+    }
+};
+
+int main() {
+    China chinese((char *) "张无忌", 12, Man);
+    chinese.name = (char *) "周芷若";
+    chinese.setSex(WoMan);
+
+    printf("name is %s,\nsex is %d\n", chinese.name, chinese.getSex());
+}
+```
+###### 继承时方法的二义性
+    1. 子类继承多个父类时，如果父类同时都实现了某个方法。那么在别的函数中调用时，会出现二义性
+    2. 为解决这种二义性，要么子类重写父类中的方法，要么通过  父类名::来告诉编译器，具体调用的是哪个父类中的方法
+```c++
+#include "iostream"
+class Drinks{
+public:
+    int price;
+
+    Drinks(int price) : price(price) {
+        printf("Drink 构造函数\n");
+    }
+};
+class Tea:public Drinks{
+public:
+    Tea(int price) : Drinks(price) {
+        printf("Tea 构造函数\n");
+    }
+
+    void drink(){
+        printf("Tea 味道很棒\n");
+    }
+
+    void sell(){
+        printf("Tea 25块钱一杯\n");
+    }
+};
+class Milk:public Drinks{
+public:
+    Milk(int price) : Drinks(price) {
+        printf("Milk 构造函数\n");
+    }
+
+    void drink(){
+        printf("Milk 味道有点甜\n");
+    }
+
+    void sell(){
+        printf("Milk 10块钱一盒\n");
+    }
+};
+class Coffe:public Drinks{
+public:
+    Coffe(int price) : Drinks(price) {
+        printf("Coffe 构造函数\n");
+    }
+
+    void drink(){
+        printf("Coffe 有点苦\n");
+    }
+
+    void sell(){
+        printf("Coffe 15块钱一杯\n");
+    }
+};
+class TeaCoffeMike:public Tea,public Coffe,public Milk{
+public:
+    TeaCoffeMike(int price) : Milk(price), Coffe(price), Tea(price) {
+        printf("TeaCoffeMike 构造函数\n");
+    }
+
+    void sell(){
+        printf("TeaCoffeMike 50块钱一杯\n");
+    }
+};
+
+int main(){
+    TeaCoffeMike teaCoffeMike(12);
+    // 多个父类中都实现了该方法，所以不能直接调用，出现二义性
+    // teaCoffeMike.drink();
+
+    // 方案1： 通过父类:: 告诉编译器调用哪个父类的方法
+    teaCoffeMike.Coffe::drink();
+    // 方案2：子类重写该方法
+    teaCoffeMike.sell();
+}
+```
+###### virtual关键字：虚基类
+    1. 祖父类有一个方法A，两个父类同时继承了祖父类。子类又同时继承了两个父类。用子类调用A时就会出现二义性
+    2. 除了之前讲过的解决方案，还可以在父类继承祖父类时用virtual关键字修饰
+    3. 如果用virtual关键字修饰，子类在调用方法A时，就是调用的祖父类的方法，且不会出现二义性
+    4. 如果此时，某个父类重写了方法A，那么子类.A()调用的就是父类的方法A
+    5. 如果此时，两个父类都重写了方法A，编译器就不知道具体调用的哪个类中的A方法。就需要父类::A来指定方法。
+```c++
+//
+// Created by jiatianlong on 2022/4/28.
+// C++  多继承二义性
+// 虚基类 virtual
+//
+#include "iostream"
+
+class Drinks {
+public:
+    int price;
+
+    Drinks(int price) : price(price) {
+        printf("Drink 构造函数\n");
+    }
+
+    void drink() {
+        printf("Drink 喝饮料\n");
+    }
+
+    void sell() {
+        printf("Drink 的价格\n");
+    }
+};
+
+class Tea : virtual public Drinks {
+public:
+    Tea(int price) : Drinks(price) {
+        printf("Tea 构造函数\n");
+    }
+
+
+};
+
+class Milk : virtual public Drinks {
+public:
+    Milk(int price) : Drinks(price) {
+        printf("Milk 构造函数\n");
+    }
+
+    void drink() {
+        printf("Milk 喝牛奶\n");
+    }
+};
+
+class Coffe : virtual public Drinks {
+public:
+    Coffe(int price) : Drinks(price) {
+        printf("Coffe 构造函数\n");
+    }
+
+    void drink() {
+        printf("Coffe 喝咖啡\n");
+    }
+};
+
+class TeaCoffeMike : public Tea, public Coffe, public Milk {
+public:
+    TeaCoffeMike(int price) : Drinks(price), Milk(price), Coffe(price), Tea(price) {
+        printf("TeaCoffeMike 构造函数\n");
+    }
+
+};
+
+int main() {
+    TeaCoffeMike teaCoffeMike(12);
+    // 由于多个父类继承祖父类时 被virtual修饰。
+    // 所以只要父类中没有重写祖父类的方法。调用时都是使用祖父类的方法
+    // 一旦有一个父类重写了，就会默认调用父类重写的方法
+    // 如果多个父类重写了该方法，即便被virtual修饰，扔会出现二义性
+    // teaCoffeMike.drink();
+    // 方案1： 通过父类:: 告诉编译器调用哪个父类的方法
+    teaCoffeMike.Tea::drink();
+    // 方案2：子类重写该方法
+    teaCoffeMike.sell();
+}
 ```

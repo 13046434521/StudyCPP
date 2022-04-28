@@ -8,7 +8,7 @@ public:
     int height;
 
 public:
-    Student(){};
+    Student(char *name, int age) {};
     Student(int age,int height):age(age),height(height){}
 };
 

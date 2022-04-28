@@ -17,7 +17,7 @@ public:
     Student(char *name, int age=10, int height=180) : name(name), age(age), height(height) {
         printf("有参构造函数:%p\n",this);
     }
-    Student(){
+    Student(char *name, int age) {
         printf("无参构造函数:地址:%p\n",this);
     }
     ~Student(){

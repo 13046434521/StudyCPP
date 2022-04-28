@@ -8,7 +8,7 @@
 
 class Student {
 public:
-    Student() {}
+    Student(char *name, int age) {}
 
     Student(Student &student) {
         printf("¿½±´¹¹Ôìº¯Êı:%p\n", &student);

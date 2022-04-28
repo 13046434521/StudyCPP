@@ -8,7 +8,7 @@ public:
     int height;
 
 public:
-    Student(){};
+    Student() {};
     Student(int age,int height):age(age),height(height){}
 
     // 操作符重载
@@ -19,7 +19,7 @@ public:
     // Student studentSet = student1 + student2 ; this 指代第一个对象：student，student2：是第二个对象
     // 这么写可以节约性能。省去一次拷贝函数。
     Student operator + (const Student& student){
-        Student stu;
+        Student stu ;
         stu.age = this->age+student.age;
         stu.height = this->height+student.height;
         printf("%p,%p\n",this,&student);
@@ -29,15 +29,15 @@ public:
     void operator ++(){
         this->age+=1;
         this->height+=1;
-        printf("前置++：++()\n");
+        printf("前置++：++i：++()\n");
     }
     void operator ++(int){
         this->age+=1;
         this->height+=1;
-        printf("后置++：++(int)\n");
+        printf("后置++：i++：++(int)\n");
     }
 
-    friend void operator << (istream &_START,Student student){
+    friend void operator << (std::ostream &_START,Student student){
 
     }
 
