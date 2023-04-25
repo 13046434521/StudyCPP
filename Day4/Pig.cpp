@@ -1,64 +1,64 @@
 //
 // Created by jiatianlong on 2022/4/27.
 //
-// ç±»çš„æ–¹æ³•å®ç°ï¼šéœ€è¦åŠ   ç±»å::
-// æ™®é€šæ–¹æ³•: è¿”å›å€¼ ç±»å::
-// é™æ€æ–¹æ³•: å’Œæ™®é€šæ–¹æ³•ä¸€æ ·ï¼Œä¸éœ€è¦åŠ static
-// å‹å…ƒå‡½æ•°: ä¸éœ€è¦åŠ  ç±»å::
+// ÀàµÄ·½·¨ÊµÏÖ£ºĞèÒª¼Ó  ÀàÃû::
+// ÆÕÍ¨·½·¨: ·µ»ØÖµ ÀàÃû::
+// ¾²Ì¬·½·¨: ºÍÆÕÍ¨·½·¨Ò»Ñù£¬²»ĞèÒª¼Óstatic
+// ÓÑÔªº¯Êı: ²»ĞèÒª¼Ó ÀàÃû::
 
 #include "Pig.h"
 
 Pig::Pig() {
-    cout << "æ„é€ å‡½æ•°:åœ°å€ï¼š"<<this<<  endl;
+    cout << "¹¹Ôìº¯Êı:µØÖ·£º"<<this<<  endl;
 }
 
 Pig::Pig(char *name) {
     this->name = name;
-    cout << "æ„é€ å‡½æ•°:ä¸€ä¸ªå‚æ•°:åœ°å€ï¼š"<<this<< " name:" << name << endl;
+    cout << "¹¹Ôìº¯Êı:Ò»¸ö²ÎÊı:µØÖ·£º"<<this<< " name:" << name << endl;
 }
 
 Pig::Pig(char *name, int age) : name(name), age(age) {
-    cout << "æ„é€ å‡½æ•°:ä¸¤ä¸ªå‚æ•°:åœ°å€ï¼š"<<this<< " name:" << name << " age:" << age << endl;
+    cout << "¹¹Ôìº¯Êı:Á½¸ö²ÎÊı:µØÖ·£º"<<this<< " name:" << name << " age:" << age << endl;
 }
 
 Pig::Pig(const Pig &pig) {
-    cout << "æ‹·è´æ„é€ å‡½æ•°:ä¼ å…¥å‚æ•°pigåœ°å€ï¼š" << &pig << " æ–°å¯¹è±¡thisåœ°å€:" << this << endl;
+    cout << "¿½±´¹¹Ôìº¯Êı:´«Èë²ÎÊıpigµØÖ·£º" << &pig << " ĞÂ¶ÔÏóthisµØÖ·:" << this << endl;
 }
 
 void Pig::showPigInfo() const {
-    cout << "æ™®é€šå‡½æ•°:showPigInfo:thisåœ°å€ï¼š" << this <<" name:"<<name<<" age:"<<age<< endl;
+    cout << "ÆÕÍ¨º¯Êı:showPigInfo:thisµØÖ·£º" << this <<" name:"<<name<<" age:"<<age<< endl;
 }
 
 void Pig::setName(char *name) {
     this->name = name;
-    cout << "æ™®é€šå‡½æ•°:setName:thisåœ°å€ï¼š" << this << endl;
+    cout << "ÆÕÍ¨º¯Êı:setName:thisµØÖ·£º" << this << endl;
 }
 
 void Pig::setAge(int age) {
     this->age =age;
-    cout << "æ™®é€šå‡½æ•°:setAge:thisåœ°å€ï¼š" << this << endl;
+    cout << "ÆÕÍ¨º¯Êı:setAge:thisµØÖ·£º" << this << endl;
 }
 
 void Pig::setPig(Pig &pig) {
-    //this = pig; é”™è¯¯å†™æ³•ï¼Œthisæ˜¯ä¸ªæŒ‡é’ˆå¸¸é‡
+    //this = pig; ´íÎóĞ´·¨£¬thisÊÇ¸öÖ¸Õë³£Á¿
     this->name = pig.name;
     this->age = pig.age;
 
-    cout << "æ™®é€šå‡½æ•°:setPig:pigåœ°å€:" << &pig << " thisåœ°å€ï¼š" << this << endl;
+    cout << "ÆÕÍ¨º¯Êı:setPig:pigµØÖ·:" << &pig << " thisµØÖ·£º" << this << endl;
 }
 
 int Pig::getAge() {
-    cout<<"æ™®é€šå‡½æ•°ï¼šgetAge:thisåœ°å€ï¼š"<<this<< " age:"<<age<<endl;
+    cout<<"ÆÕÍ¨º¯Êı£ºgetAge:thisµØÖ·£º"<<this<< " age:"<<age<<endl;
     return this->age;
 }
 
 char *Pig::getName() {
-    cout<<"æ™®é€šå‡½æ•°ï¼šgetName:thisåœ°å€ï¼š"<<this<< " name:"<<name<<endl;
+    cout<<"ÆÕÍ¨º¯Êı£ºgetName:thisµØÖ·£º"<<this<< " name:"<<name<<endl;
     return this->name;
 }
 
 void Pig::Update(Pig *pig) {
-    cout << "é™æ€å‡½æ•°:æ— æ³•è°ƒç”¨thisï¼šä¼ å…¥å¯¹è±¡åœ°å€ï¼š" << pig << endl;
+    cout << "¾²Ì¬º¯Êı:ÎŞ·¨µ÷ÓÃthis£º´«Èë¶ÔÏóµØÖ·£º" << pig << endl;
 }
 
 int Pig::height = 180;
@@ -66,12 +66,12 @@ int Pig::height = 180;
 void friendPig(Pig pig, char *name, int age) {
     pig.name = name;
     pig.age = age;
-    cout << "å‹å…ƒå‡½æ•°:å¯ä»¥è°ƒç”¨ç±»çš„ç§æœ‰å±æ€§ï¼šä¼ å…¥å¯¹è±¡åœ°å€ï¼š" << &pig <<" nameï¼š"<<pig.name<<" ageï¼š"<<pig.age<< endl;
+    cout << "ÓÑÔªº¯Êı:¿ÉÒÔµ÷ÓÃÀàµÄË½ÓĞÊôĞÔ£º´«Èë¶ÔÏóµØÖ·£º" << &pig <<" name£º"<<pig.name<<" age£º"<<pig.age<< endl;
 }
 
 
 Pig::~Pig() {
-    cout << "ææ„å‡½æ•°:å¯¹è±¡åœ°å€ï¼š" << this << endl;
+    cout << "Îö¹¹º¯Êı:¶ÔÏóµØÖ·£º" << this << endl;
 }
 
 

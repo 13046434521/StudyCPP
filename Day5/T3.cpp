@@ -5,8 +5,8 @@
 // 2. 默认属于private继承
 // 3. 无论哪种继承，子类都无法访问父类的私有属性、
 // 4. private和public继承。在子类中能拿到父类的public属性
-// 5. private继承在子类外面，无法访问父类的public属性
-// 6. public继承在子类外面，可以访问父类的public属性
+// 5. private继承，在子类内部，无法访问父类的public属性
+// 6. public继承，在子类外部，可以访问父类的public属性
 #include "iostream"
 
 class Person {

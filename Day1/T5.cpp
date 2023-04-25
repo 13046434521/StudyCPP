@@ -1,6 +1,6 @@
 //
 // Created by Administrator on 2022/4/21.
-// å¸¸é‡å¼•ç”¨
+// ³£Á¿ÒıÓÃ
 //
 
 #include "iostream"
@@ -11,24 +11,24 @@ typedef struct Student{
 } Xiexun;
 
 // ISO C++11 does not allow conversion from string literal to 'char *'
-// char * å¿…é¡»å¼ºè½¬æˆ char * å¹¶ä¸”ä¸èƒ½delete
+// char * ±ØĞëÇ¿×ª³É char * ²¢ÇÒ²»ÄÜdelete
 void change(Student& student){
-    student.name =(char *) "å¼ æ— å¿Œ";// ä¸èƒ½ delete(student.name);
+    student.name =(char *) "ÕÅÎŞ¼É";// ²»ÄÜ delete(student.name);
     student.age = 29;
 }
 
-//å¸¸é‡å¼•ç”¨ï¼Œæ— æ³•ä¿®æ”¹
-// studenté‡Œçš„å†…å®¹ä¸èƒ½æ”¹ï¼Œstudentæœ¬èº«ä¹Ÿä¸èƒ½èµ‹å€¼ä¸ºåˆ«çš„Student
+//³£Á¿ÒıÓÃ£¬ÎŞ·¨ĞŞ¸Ä
+// studentÀïµÄÄÚÈİ²»ÄÜ¸Ä£¬student±¾ÉíÒ²²»ÄÜ¸³ÖµÎª±ğµÄStudent
 //void changeConst(const Student& student){
-//    student.name = "å‘¨èŠ·è‹¥";// é”™è¯¯å†™æ³•
-//    student.age = 27;// é”™è¯¯å†™æ³•
+//    student.name = "ÖÜÜÆÈô";// ´íÎóĞ´·¨
+//    student.age = 27;// ´íÎóĞ´·¨
 //}
 int main(){
-    Xiexun xiexun ={(char *)"è°¢é€Š",58};
+    Xiexun xiexun ={(char *)"Ğ»Ñ·",58};
     change(xiexun);
-    printf("åå­—:%s,å¹´é¾„:%d\n",xiexun.name,xiexun.age);
+    printf("Ãû×Ö:%s,ÄêÁä:%d\n",xiexun.name,xiexun.age);
 //    changeConst(xiexun);
-//    printf("åå­—:%s,å¹´é¾„:%d\n",xiexun.name,xiexun.age);
+//    printf("Ãû×Ö:%s,ÄêÁä:%d\n",xiexun.name,xiexun.age);
 
     return 0;
 }

@@ -7,28 +7,28 @@
     1. C中的常量是伪常量。可以通过指针修改。而C++中的不允许
 
 ```c
-    #include
-"stdio.h"
+#include "stdio.h"
+
 // C中的常量：伪常量可以修改
-int main(){
-const int name = 1000;
-int * name_p = &name;
-*name_p = 10;
-printf("%d", name);
+int main() {
+    const int name = 1000;
+    int *name_p = &name;
+    *name_p = 10;
+    printf("%d", name);
 }
 ```
 
 ```c++
-    #include
+#include
 "iostream"
 
-// C++ 中，不许对常量进去取值再赋值 的操作。
+// C++ 中，不许对常量进行取值再赋值 的操作。
 // 该写法报错
 int main(){
-const int data = 10;
-int * data_p = &data;// 此处报错
-*data_p = 1000;
-printf("%d", data);
+    const int data = 10;
+    int * data_p = &data;// 此处报错
+    *data_p = 1000;
+    printf("%d", data);
 }
 ```
 
@@ -37,36 +37,36 @@ printf("%d", data);
     1. 传引用类似于Java中的传对象或者C/C++中的传地址。修改的是同一块内存中的值
 
 ```c++
-    #include
+#include
 "iostream"
 using namespace std;
 
 // 直接在内存地址上操作
 void changeData(int * num1, int *num2){
-int temp = *num1;
-*num1 = *num2;
-*num2 = temp;
-printf("%p,%p\n", num1, num2);
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+    printf("%p,%p\n", num1, num2);
 }
 
-// 传引用：类似于Java传的是同一个对象，在方法中修改对象，就会
+// 传引用：类似于Java传的是同一个对象，在方法中修改对象，相当于直接修改num1，num2的值
 void changeData(int &num1, int &num2){
-int temp = num1;
-num1 = num2;
-num2 = temp;
-printf("%p,%p\n", &num1, &num2);
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+    printf("%p,%p\n", &num1, &num2);
 }
 
 int main(){
-int num1 = 100;
-int num2 = 200;
-changeData(&num1, &num2);
-printf("----------传地址----------\n");
-printf("%d,%d,%p,%p\n", num1, num2, &num1, &num2);
+    int num1 = 100;
+    int num2 = 200;
+    changeData(&num1, &num2);
+    printf("----------传地址----------\n");
+    printf("%d,%d,%p,%p\n", num1, num2, &num1, &num2);
 
-printf("----------传引用----------\n");
-changeData(num1, num2);
-printf("%d,%d,%p,%p\n", num1, num2, &num1, &num2);
+    printf("----------传引用----------\n");
+    changeData(num1, num2);
+    printf("%d,%d,%p,%p\n", num1, num2, &num1, &num2);
 
 
 // data 和 data2 都指向同一片内存。
@@ -82,9 +82,8 @@ printf("%d,%p,%p", data, &data, &data2);
     3. 常量引用，不能修改值。否则报错
 
 ```c++
-    #include
-"iostream"
 #include
+"iostream"
 "string.h"
 typedef struct Student{
 char* name;

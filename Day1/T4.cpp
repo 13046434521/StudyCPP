@@ -5,7 +5,7 @@
 #include "iostream"
 using namespace std;
 
-// ç›´æ¥åœ¨å†…å­˜åœ°å€ä¸Šæ“ä½œ
+// Ö±½ÓÔÚÄÚ´æµØÖ·ÉÏ²Ù×÷
 void changeData(int * num1,int *num2){
     int temp = *num1;
     *num1 = *num2;
@@ -13,7 +13,7 @@ void changeData(int * num1,int *num2){
     printf("%p,%p\n",num1,num2);
 }
 
-// ä¼ å¼•ç”¨ï¼šç±»ä¼¼äºJavaä¼ çš„æ˜¯åŒä¸€ä¸ªå¯¹è±¡ï¼Œåœ¨æ–¹æ³•ä¸­ä¿®æ”¹å¯¹è±¡ï¼Œå°±ä¼š
+// ´«ÒıÓÃ£ºÀàËÆÓÚJava´«µÄÊÇÍ¬Ò»¸ö¶ÔÏó£¬ÔÚ·½·¨ÖĞĞŞ¸Ä¶ÔÏó£¬¾Í»á
 void changeData(int &num1,int &num2){
     int temp = num1;
     num1 = num2;
@@ -24,17 +24,20 @@ void changeData(int &num1,int &num2){
 int main(){
     int num1 = 100;
     int num2 = 200;
+    printf("×î³õµÄµØÖ·Öµ£º%p,%p\n",&num1,&num2);
+
+    printf("----------´«µØÖ·----------\n");
     changeData(&num1,&num2);
-    printf("----------ä¼ åœ°å€----------\n");
     printf("%d,%d,%p,%p\n",num1,num2,&num1,&num2);
 
-    printf("----------ä¼ å¼•ç”¨----------\n");
+    printf("----------´«ÒıÓÃ----------\n");
     changeData(num1,num2);
     printf("%d,%d,%p,%p\n",num1,num2,&num1,&num2);
 
 
-    // data å’Œ data2 éƒ½æŒ‡å‘åŒä¸€ç‰‡å†…å­˜ã€‚
+    // data ºÍ data2 ¶¼Ö¸ÏòÍ¬Ò»Æ¬ÄÚ´æ¡£
     int data = 999;
+    // ¸ødata±äÁ¿È¡ÁËÒ»¸ö±ğÃûdata2
     int &data2 = data;
     data2 = 200;
 

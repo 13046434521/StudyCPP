@@ -5,10 +5,10 @@
 
 int main(){
     Pig pig;
-    Pig* pig_p = new Pig((char*)"è°¢é€Š",50);
+    Pig* pig_p = new Pig((char*)"Ð»Ñ·",50);
 
     Pig pig1 = pig;
-    pig1.setName((char *)"å¼ æ— å¿Œ");
+    pig1.setName((char *)"ÕÅÎÞ¼É");
     pig1.setAge(20);
     pig1.getName();
     Pig::Update(pig_p);
@@ -18,7 +18,7 @@ int main(){
     pig.setPig(pig1);
     pig.showPigInfo();
 
-    friendPig(pig1,(char *)"å‘¨èŠ·è‹¥",18);
+    friendPig(pig1,(char *)"ÖÜÜÆÈô",18);
     pig1.getName();
     pig1.showPigInfo();
     delete(pig_p);
